@@ -1,7 +1,10 @@
 import { View, TouchableOpacity, Image, StyleSheet, SafeAreaView, Platform, StatusBar } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
-const Header = ({ navigation }) => {
+const Header = () => {
+  // inside a nested component , need the useNavigation hook
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar></StatusBar>
@@ -18,7 +21,7 @@ const Header = ({ navigation }) => {
         {/* Feedback Button */}
         <TouchableOpacity
           style={styles.feedbackButton}
-          onPress={()=> navigation.navigate("Feedback")}
+          onPress={() => navigation.navigate("Feedback")}
           activeOpacity={0.7}
         >
           <Ionicons name="chatbox-ellipses-outline" size={22} color="#fff" />

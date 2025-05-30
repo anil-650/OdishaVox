@@ -18,18 +18,19 @@ export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
-      <View style={styles.appContainer}>
-        <Header />
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={Home}/>
-            <Stack.Screen name="TTS" component={TTSPlayer}/>
-            <Stack.Screen name="STT" component={STTConverter}/>
-            <Stack.Screen name="Feedback" component={Feedback}/>
-          </Stack.Navigator>
-        </NavigationContainer>
-        <Footer />
-      </View>
+    <View style={styles.appContainer}>
+      <NavigationContainer>
+        {/* everything needig navigaton needs to be inside NavigationContainer */}
+      <Header />
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="TTS" component={TTSPlayer} />
+          <Stack.Screen name="STT" component={STTConverter} />
+          <Stack.Screen name="Feedback" component={Feedback} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Footer />
+    </View>
   );
 }
 
